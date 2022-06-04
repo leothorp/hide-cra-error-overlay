@@ -1,21 +1,22 @@
-
-  {
-    "name": "hide-cra-overlay",
-    "version": "1.0.0",
-    "description": "",
+{
+    "name": "hide-cra-error-overlay",
+    "version": "1.0.1",
+    "description": "Minimizes the Create React App error overlay.",
     "main": "index.js",
+    "files": [
+        "index.js"
+    ],
     "repository": {
-      "type": "git",
-      "url": "https://github.com/leothorp/hide-cra-overlay.git"
+        "type": "git",
+        "url": "https://github.com/leothorp/hide-cra-overlay.git"
     },
-    "scripts": {
-  
-    },
-    "keywords": ["create-react-app overlay", "webpack-dev-server overlay", "overlay", "errors"],
-    "author": "",
+    "scripts": {},
+    "keywords": [
+        "create-react-app overlay",
+        "webpack-dev-server overlay",
+        "overlay",
+        "errors"
+    ],
+    "author": "leothorp",
     "license": "MIT"
-  }
-  
-
-  
-
+}
