@@ -23,7 +23,8 @@ To adjust the behavior, you can optionally import `initHideOverlay` and invoke i
 import {initHideOverlay} from "hide-cra-error-overlay";
 
 initHideOverlay({
-    //DOM id of the 'overlay' element to hide when it appears (assumed to be a direct child of document.body)
+    //DOM id of the 'overlay' element to hide when it appears
+    //(assumed to be a direct child of document.body)
     overlayId: "webpack-dev-server-client-overlay", 
     
     //whether or not to add the "Show Errors" button
