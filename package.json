@@ -1,6 +1,6 @@
 {
     "name": "hide-cra-error-overlay",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Minimize the Create React App error overlay by default.",
     "main": "index.js",
     "files": [
