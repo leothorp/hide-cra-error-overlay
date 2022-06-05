@@ -12,10 +12,9 @@
     },
     "scripts": {},
     "keywords": [
-        "create-react-app overlay",
+        "create-react-app",
+        "error overlay",
         "webpack-dev-server overlay",
-        "overlay",
-        "errors"
     ],
     "author": "leothorp",
     "license": "MIT"
