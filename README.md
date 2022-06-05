@@ -1,9 +1,6 @@
 # hide-cra-error-overlay
 
 ## Hide the Create React App error overlay behind a "Show Errors" button. ##
-### Motivation
-During development, Create React App displays a full-screen error overlay for webpack compilation errors. The config for this is only accessible by ejecting- but particularly with Typescript errors, sometimes you may just want to temporarily ignore these to see your app.
-When imported, this module hides the error overlay whenever it is triggered. It also adds a small "Show Errors" button to the lower right of the screen- click this to toggle the error overlay.
 
 Before (overlay): https://imgur.com/SRynbwp
 After (button): https://imgur.com/vf3eg8g
@@ -18,6 +15,10 @@ In src/index.js (or another project file):
 import "hide-cra-error-overlay";
 ```
 That's it! the overlay will be replaced with the "Show Errors" button from now on.
+
+### Motivation
+During development, Create React App displays a full-screen error overlay for webpack compilation errors. The config for this is only accessible by ejecting- but particularly with Typescript errors, sometimes you may just want to temporarily ignore these to see your app.
+When imported, this module hides the error overlay whenever it is triggered. It also adds a small "Show Errors" button to the lower right of the screen- click this to toggle the error overlay.
 ### In Production
 The contents of this module are compiled away by webpack when `process.env.NODE_ENV === 'production'`, so leaving in the import won't impact your bundle size beyond a couple of bytes. `initHideOverlay` becomes a no-op if used in production.
 ### Config
