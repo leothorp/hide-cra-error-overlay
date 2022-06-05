@@ -25,7 +25,7 @@ After (button):
 <img src="https://user-images.githubusercontent.com/12928449/172033833-0b601939-8a87-4b76-afc9-2520c2554923.png" width="400" height="300">
 
 ### Motivation
-During development, Create React App displays a full-screen error overlay for webpack compilation errors. The config for this is only accessible by ejecting- but particularly with Typescript errors, sometimes you may just want to temporarily ignore these to see your app.
+During development, Create React App displays a full-screen error overlay for webpack compilation errors. The config for this is only accessible by ejecting- but particularly with Typescript errors, sometimes you may just want to temporarily ignore these to test your app.
 When imported, this module hides the error overlay whenever it is triggered. It also adds a small "Show Errors" button to the lower right of the screen- click this to toggle the error overlay.
 ### In Production
 The contents of this module are compiled away by webpack when `process.env.NODE_ENV === 'production'`, so leaving in the import won't impact your bundle size beyond a couple of bytes. `initHideOverlay` becomes a no-op if used in production.
