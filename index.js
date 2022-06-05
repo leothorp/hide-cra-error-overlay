@@ -1,6 +1,5 @@
 let initHideOverlay = () => {};
 if (process.env.NODE_ENV !== "production") {
-  console.log("IN HIDE PACKAGE");
   let observer = null;
   const defaults = {
     overlayId: "webpack-dev-server-client-overlay",

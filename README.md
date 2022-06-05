@@ -16,7 +16,7 @@ import "hide-cra-error-overlay";
 ```
 That's it! the overlay will be replaced with the "Show Errors" button from now on.
 ### In Production
-The contents of this module are compiled away by webpack when `process.env.NODE_ENV === 'production'`, so leaving in the import won't impact your bundle size. `initHideOverlay` becomes a no-op if used in production.
+The contents of this module are compiled away by webpack when `process.env.NODE_ENV === 'production'`, so leaving in the import won't impact your bundle size beyond a couple of bytes. `initHideOverlay` becomes a no-op if used in production.
 ### Config
 To adjust the behavior, you can optionally import `initHideOverlay` and invoke it with any of the options in the example below. Values shown below are the defaults. Note that before this function is invoked, the default behavior will be in place.
 ```javascript
