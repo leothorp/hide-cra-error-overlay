@@ -6,6 +6,7 @@ During development, Create React App displays a full-screen error overlay for we
 When imported, this module hides the error overlay whenever it is triggered. It also adds a small "Show Errors" button to the lower right of the screen- click this to toggle the error overlay.
 
 Before (overlay): https://imgur.com/SRynbwp
+
 After (button): https://imgur.com/vf3eg8g
 
 ### Installation
