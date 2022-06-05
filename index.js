@@ -81,8 +81,6 @@ if (process.env.NODE_ENV !== "production") {
       }
       return;
     }
-    //TODO: (what happens for wrong id)
-    //TODO: (test prod bundle impact (lib for that?))
     observer = new MutationObserver((mutationList) => {
       mutationList.forEach((mutation) => {
         mutation.addedNodes.forEach((node) => {

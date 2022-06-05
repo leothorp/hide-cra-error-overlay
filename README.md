@@ -23,9 +23,14 @@ To adjust the behavior, you can optionally import `initHideOverlay` and invoke i
 import {initHideOverlay} from "hide-cra-error-overlay";
 
 initHideOverlay({
-    overlayId: "webpack-dev-server-client-overlay", //DOM id of the 'overlay' element to hide (if there were ever another element you wanted to hide when it appears in development)
-    withRestoreButton: true, //whether or not to add the "Show Errors" button
-    disable: false, //disable hiding, restore original CRA behavior
+    //DOM id of the 'overlay' element to hide when it appears (assumed to be a direct child of document.body)
+    overlayId: "webpack-dev-server-client-overlay", 
+    
+    //whether or not to add the "Show Errors" button
+    withRestoreButton: true,
+   
+   //disable hiding, restore original CRA behavior
+   disable: false, 
 });
 ```
 This function can be invoked multiple times for different config at different points in execution (e.g., when a certain component is mounted).
