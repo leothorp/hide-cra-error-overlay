@@ -3,6 +3,7 @@
 ## Hide the Create React App error overlay behind a "Show Errors" button. ##
 
 Before (overlay): https://imgur.com/SRynbwp
+
 After (button): https://imgur.com/vf3eg8g
 
 ### Installation
