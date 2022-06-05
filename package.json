@@ -2,7 +2,7 @@
   {
     "name": "hide-cra-error-overlay",
     "version": "1.0.0",
-    "description": "",
+    "description": "A simple way to minize create-react-app's error overlay.",
     "main": "index.js",
     "files": [
       "index.js"
@@ -15,7 +15,7 @@
   
     },
     "keywords": ["create-react-app overlay", "webpack-dev-server overlay", "overlay", "errors"],
-    "author": "",
+    "author": "leothorp",
     "license": "MIT"
   }
   
