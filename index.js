@@ -7,7 +7,8 @@ if (process.env.NODE_ENV !== "production") {
     withRestoreButton: true,
     disable: false,
   };
-  console.log("oh");
+
+  const BUTTON_ID = "hide-cra-error-overlay-btn";
 
   //avoids violating CSP
   const setBtnStyles = (btn, styles) => {
@@ -17,7 +18,6 @@ if (process.env.NODE_ENV !== "production") {
   };
   const hideOverlay = (node, withRestoreButton) => {
     const id = node.id;
-    console.log("bts", withRestoreButton);
 
     if (withRestoreButton) {
       const btn = document.createElement("button");
@@ -35,7 +35,7 @@ if (process.env.NODE_ENV !== "production") {
         cursor: "pointer",
         "z-index": parseInt(node.style["z-index"]),
       });
-      btn.id = "hide-cra-error-overlay-btn";
+      btn.id = BUTTON_ID;
 
       const maximize = (currOverlayEl, btn) => {
         if (currOverlayEl) {
@@ -61,8 +61,6 @@ if (process.env.NODE_ENV !== "production") {
 
       minimize(node, btn);
       document.body.appendChild(btn);
-
-
     } else {
       node.remove();
     }
@@ -73,21 +71,26 @@ if (process.env.NODE_ENV !== "production") {
     const { overlayId, withRestoreButton, disable } = config;
     destroyObserver();
     if (disable) {
+      const currOverlayEl = document.getElementById(overlayId);
+      if (currOverlayEl) {
+        currOverlayEl.style.display = "block";
+      }
+      const currButtonEl = document.getElementById(BUTTON_ID);
+      if (currButtonEl) {
+        currButtonEl.remove();
+      }
       return;
     }
     //TODO: (what happens for wrong id)
     //TODO: (test prod bundle impact (lib for that?))
     observer = new MutationObserver((mutationList) => {
       mutationList.forEach((mutation) => {
-        console.log("mutty", mutation);
         mutation.addedNodes.forEach((node) => {
-          console.log("added node: ", node);
           if (node.id === overlayId) {
             hideOverlay(node, withRestoreButton);
           }
         });
         mutation.removedNodes.forEach((node) => {
-          console.log("rmed node: ", node);
           if (node.id === overlayId) {
             const btn = document.getElementById("hide-cra-error-overlay-btn");
             if (btn) {
@@ -101,14 +104,13 @@ if (process.env.NODE_ENV !== "production") {
       subtree: false,
       childList: true,
     };
-    observer.observe(document.querySelector("body"), options);
+    observer.observe(document.body, options);
   };
   const destroyObserver = () => {
     observer?.disconnect();
     observer = null;
   };
   initHideOverlay = _initHideOverlay;
-  console.log("callin");
   initHideOverlay();
 }
 
