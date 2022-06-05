@@ -1,6 +1,6 @@
 # hide-cra-error-overlay
 
-### Minimize the Create React App error overlay by default. ###
+## Minimize the Create React App error overlay by default. ##
 ### Motivation
 During development, Create React App displays a full-screen error overlay for webpack compilation errors. This can't be disabled without ejecting- but particularly with Typescript errors, sometimes you may just want to temporarily ignore these to see your app.
 This small package hides the error overlay by default whenever it appears, and adds a small "Show Errors" button to the lower right of the screen 
