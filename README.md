@@ -2,9 +2,13 @@
 
 ## Hide the Create React App error overlay behind a "Show Errors" button. ##
 
-Before (overlay): ![image](https://user-images.githubusercontent.com/12928449/172033836-5daadd0e-d237-4546-9afa-5244cce43211.png)
+Before:
 
-After (button): ![image](https://user-images.githubusercontent.com/12928449/172033833-0b601939-8a87-4b76-afc9-2520c2554923.png)
+<img src="https://user-images.githubusercontent.com/12928449/172033836-5daadd0e-d237-4546-9afa-5244cce43211.png" width="400" height="300">
+
+After (button):
+
+<img src="https://user-images.githubusercontent.com/12928449/172033833-0b601939-8a87-4b76-afc9-2520c2554923.png" width="400" height="300">
 
 ### Installation
 ```
