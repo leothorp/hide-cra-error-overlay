@@ -89,7 +89,7 @@ if (process.env.NODE_ENV !== "production") {
         });
         mutation.removedNodes.forEach((node) => {
           if (node.id === overlayId) {
-            const btn = document.getElementById("hide-cra-error-overlay-btn");
+            const btn = document.getElementById(BUTTON_ID);
             if (btn) {
               btn.remove();
             }
