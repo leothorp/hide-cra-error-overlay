@@ -1,6 +1,6 @@
 # hide-cra-error-overlay
 
-## Hide the Create React App error overlay behind a "Show Errors" button. ##
+### Hide the Create React App error overlay behind a "Show Errors" button. ##
 
 
 
