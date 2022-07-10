@@ -2,7 +2,7 @@ let initHideOverlay = () => {};
 if (process.env.NODE_ENV !== "production") {
   let observer = null;
   const defaults = {
-    overlayId: "webpack-dev-server-client-overlay",
+    overlayId: ["webpack-dev-server-client-overlay-div", "webpack-dev-server-client-overlay"],
     withRestoreButton: true,
     disable: false,
   };
