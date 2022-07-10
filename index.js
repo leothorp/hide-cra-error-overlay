@@ -1,9 +1,9 @@
 let initHideOverlay = () => {};
-if (process.env.NODE_ENV !== "production") {
+
   let observer = null;
   const defaults = {
     overlayId: [
-      "webpack-dev-server-client-overlay-div",
+      // "webpack-dev-server-client-overlay-div",
       "webpack-dev-server-client-overlay",
     ],
     withRestoreButton: true,
@@ -72,18 +72,21 @@ if (process.env.NODE_ENV !== "production") {
     for (let i = 0; i < ids.length; i++) {
       const foundEl = document.getElementById(ids[i]);
       if (foundEl) {
+        console.log('found', foundEl)
         return foundEl;
       }
     }
   };
 
   const _initHideOverlay = (userConfig = {}) => {
+    debugger;
     const config = Object.assign({}, defaults, userConfig);
     const { overlayId, withRestoreButton, disable } = config;
     const normalizedOverlayIds = Array.isArray(overlayId)
       ? overlayId
       : [overlayId];
     destroyObserver();
+
     if (disable) {
       const currOverlayEl = getElByOneOfIds(normalizedOverlayIds);
       if (currOverlayEl) {
@@ -95,6 +98,7 @@ if (process.env.NODE_ENV !== "production") {
       }
       return;
     }
+
     observer = new MutationObserver((mutationList) => {
       mutationList.forEach((mutation) => {
         mutation.addedNodes.forEach((node) => {
@@ -112,6 +116,17 @@ if (process.env.NODE_ENV !== "production") {
         });
       });
     });
+
+
+    //kick it off async around when mutation observer is initialized
+    setTimeout(() => {
+
+      const initialOverlayEl = getElByOneOfIds(normalizedOverlayIds);
+      if (initialOverlayEl) {
+        hideOverlay(initialOverlayEl, withRestoreButton)
+      }
+    }, 200)
+
     const options = {
       subtree: false,
       childList: true,
@@ -124,6 +139,6 @@ if (process.env.NODE_ENV !== "production") {
   };
   initHideOverlay = _initHideOverlay;
   initHideOverlay();
-}
+
 
 export { initHideOverlay };
