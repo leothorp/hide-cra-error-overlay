@@ -2,7 +2,10 @@ let initHideOverlay = () => {};
 if (process.env.NODE_ENV !== "production") {
   let observer = null;
   const defaults = {
-    overlayId: ["webpack-dev-server-client-overlay-div", "webpack-dev-server-client-overlay"],
+    overlayId: [
+      "webpack-dev-server-client-overlay-div",
+      "webpack-dev-server-client-overlay",
+    ],
     withRestoreButton: true,
     disable: false,
   };
@@ -65,12 +68,24 @@ if (process.env.NODE_ENV !== "production") {
     }
   };
 
+  const getElByOneOfIds = (ids) => {
+    for (let i = 0; i < ids.length; i++) {
+      const foundEl = document.getElementById(ids[i]);
+      if (foundEl) {
+        return foundEl;
+      }
+    }
+  };
+
   const _initHideOverlay = (userConfig = {}) => {
     const config = Object.assign({}, defaults, userConfig);
     const { overlayId, withRestoreButton, disable } = config;
+    const normalizedOverlayIds = Array.isArray(overlayId)
+      ? overlayId
+      : [overlayId];
     destroyObserver();
     if (disable) {
-      const currOverlayEl = document.getElementById(overlayId);
+      const currOverlayEl = getElByOneOfIds(normalizedOverlayIds);
       if (currOverlayEl) {
         currOverlayEl.style.display = "block";
       }
@@ -83,12 +98,12 @@ if (process.env.NODE_ENV !== "production") {
     observer = new MutationObserver((mutationList) => {
       mutationList.forEach((mutation) => {
         mutation.addedNodes.forEach((node) => {
-          if (node.id === overlayId) {
+          if (normalizedOverlayIds.includes(node.id)) {
             hideOverlay(node, withRestoreButton);
           }
         });
         mutation.removedNodes.forEach((node) => {
-          if (node.id === overlayId) {
+          if (normalizedOverlayIds.includes(node.id)) {
             const btn = document.getElementById(BUTTON_ID);
             if (btn) {
               btn.remove();
