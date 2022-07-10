@@ -79,7 +79,7 @@ let initHideOverlay = () => {};
   };
 
   const _initHideOverlay = (userConfig = {}) => {
-    debugger;
+
     const config = Object.assign({}, defaults, userConfig);
     const { overlayId, withRestoreButton, disable } = config;
     const normalizedOverlayIds = Array.isArray(overlayId)
@@ -118,14 +118,12 @@ let initHideOverlay = () => {};
     });
 
 
-    //kick it off async around when mutation observer is initialized
-    setTimeout(() => {
 
-      const initialOverlayEl = getElByOneOfIds(normalizedOverlayIds);
-      if (initialOverlayEl) {
-        hideOverlay(initialOverlayEl, withRestoreButton)
-      }
-    }, 200)
+    const initialOverlayEl = getElByOneOfIds(normalizedOverlayIds);
+    if (initialOverlayEl) {
+      hideOverlay(initialOverlayEl, withRestoreButton)
+    }
+  
 
     const options = {
       subtree: false,
